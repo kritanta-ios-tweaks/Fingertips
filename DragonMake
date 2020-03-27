@@ -1,0 +1,25 @@
+---
+package_name: Fingertips 
+install_command: killall -9 SpringBoard
+Fingertips:
+    type: tweak 
+    logos_files:
+        - $wildcard("./", "*.xm")
+    files:
+        - $eval("ls ./*.m")
+    targetios: 11.0
+    archs:
+        - arm64
+        - arm64e
+    cflags: -w
+FingertipsPrefs:
+    type: bundle
+    dir: fingertipsprefs
+    files:
+        - FTPRootListController.m
+    frameworks:
+        - Preferences
+    stage: 
+        - mkdir -p .dragon/_/Library/PreferenceLoader/Preferences/
+        - cp entry.plist .dragon/_/Library/PreferenceLoader/Preferences/$name.plist
+    

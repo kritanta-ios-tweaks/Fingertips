@@ -1,0 +1,18 @@
+# ninja log v5
+1	42	1585324866286033892	.dragon/build/trash/bundles	2461671c9cf777d3
+2	48	1585324881572226429	.dragon/build/trash/bundles	2461671c9cf777d3
+0	2261	1585324883810074073	.dragon/build/FTPRootListController.m.o	b87bbf61cfdecddb
+2261	2621	1585324884169952744	.dragon/sign/.dragon/_/Library/PreferenceBundles/FingertipsPrefs.bundle/FingertipsPrefs.unsym	c46dc16a53bb6eae
+2621	2677	1585324884169952744	.dragon/sign/.dragon/_/Library/PreferenceBundles/FingertipsPrefs.bundle/FingertipsPrefs.unsigned	8d86787409b2a6d1
+2677	2691	1585324884238607543	.dragon/_/Library/PreferenceBundles/FingertipsPrefs.bundle/FingertipsPrefs	41a42d6750c11755
+2691	2698	0	.dragon/build/trash/stage	bd40585c1fc1a5f0
+0	34	1585325114779726845	.dragon/build/trash/bundles	2461671c9cf777d3
+1	285	1585325115051264876	.dragon/sign/.dragon/_/Library/PreferenceBundles/FingertipsPrefs.bundle/FingertipsPrefs.unsym	c46dc16a53bb6eae
+285	315	1585325115051264876	.dragon/sign/.dragon/_/Library/PreferenceBundles/FingertipsPrefs.bundle/FingertipsPrefs.unsigned	8d86787409b2a6d1
+315	328	1585325115092804972	.dragon/_/Library/PreferenceBundles/FingertipsPrefs.bundle/FingertipsPrefs	41a42d6750c11755
+328	335	0	.dragon/build/trash/stage	bd40585c1fc1a5f0
+0	28	1585325242030860748	.dragon/build/trash/bundles	2461671c9cf777d3
+1	316	1585325242333969877	.dragon/sign/.dragon/_/Library/PreferenceBundles/FingertipsPrefs.bundle/FingertipsPrefs.unsym	c46dc16a53bb6eae
+316	347	1585325242333969877	.dragon/sign/.dragon/_/Library/PreferenceBundles/FingertipsPrefs.bundle/FingertipsPrefs.unsigned	8d86787409b2a6d1
+347	363	1585325242378932540	.dragon/_/Library/PreferenceBundles/FingertipsPrefs.bundle/FingertipsPrefs	41a42d6750c11755
+363	370	0	.dragon/build/trash/stage	bd40585c1fc1a5f0

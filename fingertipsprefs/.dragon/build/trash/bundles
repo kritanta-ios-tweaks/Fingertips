@@ -1,0 +1,118 @@
+name = FingertipsPrefs
+lowername = fingertipsprefs
+
+
+pdirname = .dragon
+
+location = /Library/PreferenceBundles/$name.bundle/
+target = $pdirname/_$location$name
+
+stage2 = 
+
+builddir = $pdirname/build
+objdir = $pdirname/obj
+signdir = $pdirname/sign
+signtarget = $signdir/$target.unsigned
+symtarget = $signdir/$target.unsym
+
+dragondir = $$DRAGONBUILD
+pwd = .
+sysroot = $dragondir/sdks/iPhoneOS.sdk
+
+fwSearch = -F$sysroot/System/Library/Frameworks $
+    -F$sysroot/System/Library/PrivateFrameworks -F$dragondir/frameworks
+libSearch = -L$dragondir/lib -L.
+
+cc = clang++
+ld = clang++
+ldid = ldid
+dsym = dsymutil
+logos = $dragondir/bin/logos.pl
+plutil = plutil
+stage = mkdir -p .dragon/_/Library/PreferenceLoader/Preferences/; cp $
+    entry.plist .dragon/_/Library/PreferenceLoader/Preferences/$name.plist
+
+targetios = 10.0
+
+frameworks = -framework Preferences -framework CoreFoundation -framework $
+    Foundation -framework UIKit -framework CoreGraphics -framework $
+    QuartzCore -framework CoreImage -framework AudioToolbox
+
+libs = -lobjc -lc++
+
+arcs = -arch armv7 -arch arm64 -arch arm64e
+
+arc = -fobjc-arc
+btarg = -DTARGET_IPHONE=1
+warnings = -Wall
+optim = -O0
+debug = -fcolor-diagnostics
+
+cinclude = -I$dragondir/include -I$dragondir/vendor/include $
+    -I$dragondir/include/_fallback -I$DRAGONBUILD/headers/ -I$pwd
+
+usrCflags = 
+usrLDflags = 
+usrLDIDFlags = -S
+
+lopt = -dynamiclib -ggdb -lsystem.b -Xlinker -segalign -Xlinker 4000
+
+cflags = $cinclude $arcs $arc $fwSearch -mios-version-min=$targetios $
+    -isysroot $sysroot $btarg $warnings $optim $debug $usrCflags
+
+lflags = $cflags $frameworks $libs $lopt $libSearch $usrLDflags
+
+ldflags = $usrLDFlags
+
+pool solo
+  depth = 1
+
+rule logos
+  command = $logos $in > $out
+  description = Processing $in with Logos
+
+rule compile
+  command = $cc $cflags -c $in -o $out
+  description = Compiling $in
+
+rule link
+  command = $ld $lflags -o $out $in
+  description = Linking $name
+
+rule bundle
+  command = mkdir -p .dragon/_$location/; cp -r Resources/ $
+      .dragon/_$location && cp $in $out && find .dragon/_$location -type f $
+      -name "*.plist" -exec $plutil -convert binary1 "{}" \;
+  description = Copying Bundle Resources
+  pool = solo
+
+rule plist
+  command = $plutil -convert binary1 $in -o $out
+  description = Converting $in
+
+rule debug
+  command = $dsym "$in" 2&> /dev/null; mv $in $out
+  description = Generating Debug Symbols for $name
+
+rule sign
+  command = $ldid $usrLDIDFlags $in && mv $in $target
+  description = Signing $name
+
+rule stage
+  command = $stage $stage2
+  description = Running Stage for $name
+
+build $builddir/FTPRootListController.m.o: compile FTPRootListController.m
+
+build $builddir/trash/bundles: bundle build.ninja
+
+build $builddir/trash/stage: stage $target
+
+build $symtarget: link $builddir/FTPRootListController.m.o
+
+build $signtarget: debug $symtarget
+
+build $target: sign $signtarget
+
+default $target $builddir/trash/bundles $builddir/trash/stage
+
