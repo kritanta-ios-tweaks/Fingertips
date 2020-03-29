@@ -1,4 +1,4 @@
-name = FingertipsPrefs
+name = fingertipsprefs
 lowername = fingertipsprefs
 
 
@@ -32,7 +32,7 @@ plutil = plutil
 stage = mkdir -p .dragon/_/Library/PreferenceLoader/Preferences/; cp $
     entry.plist .dragon/_/Library/PreferenceLoader/Preferences/$name.plist
 
-targetios = 10.0
+targetios = 11.0
 
 frameworks = -framework Preferences -framework CoreFoundation -framework $
     Foundation -framework UIKit -framework CoreGraphics -framework $
@@ -40,7 +40,7 @@ frameworks = -framework Preferences -framework CoreFoundation -framework $
 
 libs = -lobjc -lc++
 
-arcs = -arch armv7 -arch arm64 -arch arm64e
+arcs = -arch arm64 -arch arm64e
 
 arc = -fobjc-arc
 btarg = -DTARGET_IPHONE=1

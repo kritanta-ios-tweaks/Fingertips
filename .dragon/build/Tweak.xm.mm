@@ -9,7 +9,7 @@
 
 
 
-
+#include "libcolorpicker.h"
 #include "MBFingerTipWindow.h"
 
 
@@ -36,7 +36,7 @@ static MBFingerTipWindow *_rtWindow;
 #define _LOGOS_RETURN_RETAINED
 #endif
 
-@class UIApplication; @class MBFingerTipOverlayWindow; @class UIWindow; 
+@class MBFingerTipOverlayWindow; @class UIApplication; @class UIWindow; 
 static UIWindow * (*_logos_orig$_ungrouped$UIApplication$keyWindow)(_LOGOS_SELF_TYPE_NORMAL UIApplication* _LOGOS_SELF_CONST, SEL); static UIWindow * _logos_method$_ungrouped$UIApplication$keyWindow(_LOGOS_SELF_TYPE_NORMAL UIApplication* _LOGOS_SELF_CONST, SEL); static BOOL (*_logos_orig$_ungrouped$MBFingerTipOverlayWindow$_shouldCreateContextAsSecure)(_LOGOS_SELF_TYPE_NORMAL MBFingerTipOverlayWindow* _LOGOS_SELF_CONST, SEL); static BOOL _logos_method$_ungrouped$MBFingerTipOverlayWindow$_shouldCreateContextAsSecure(_LOGOS_SELF_TYPE_NORMAL MBFingerTipOverlayWindow* _LOGOS_SELF_CONST, SEL); static void (*_logos_orig$_ungrouped$UIWindow$sendEvent$)(_LOGOS_SELF_TYPE_NORMAL UIWindow* _LOGOS_SELF_CONST, SEL, UIEvent *); static void _logos_method$_ungrouped$UIWindow$sendEvent$(_LOGOS_SELF_TYPE_NORMAL UIWindow* _LOGOS_SELF_CONST, SEL, UIEvent *); 
 
 #line 17 "Tweak.xm"
@@ -60,6 +60,7 @@ static UIWindow * _logos_method$_ungrouped$UIApplication$keyWindow(_LOGOS_SELF_T
 
 
 static BOOL _logos_method$_ungrouped$MBFingerTipOverlayWindow$_shouldCreateContextAsSecure(_LOGOS_SELF_TYPE_NORMAL MBFingerTipOverlayWindow* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd) {
+	UIColor *coolColor = LCPParseColorString(@"ffffff", @"#ff0000");
     return YES;
 }
 
@@ -83,4 +84,4 @@ static void _logos_method$_ungrouped$UIWindow$sendEvent$(_LOGOS_SELF_TYPE_NORMAL
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$UIApplication = objc_getClass("UIApplication"); MSHookMessageEx(_logos_class$_ungrouped$UIApplication, @selector(keyWindow), (IMP)&_logos_method$_ungrouped$UIApplication$keyWindow, (IMP*)&_logos_orig$_ungrouped$UIApplication$keyWindow);Class _logos_class$_ungrouped$MBFingerTipOverlayWindow = objc_getClass("MBFingerTipOverlayWindow"); MSHookMessageEx(_logos_class$_ungrouped$MBFingerTipOverlayWindow, @selector(_shouldCreateContextAsSecure), (IMP)&_logos_method$_ungrouped$MBFingerTipOverlayWindow$_shouldCreateContextAsSecure, (IMP*)&_logos_orig$_ungrouped$MBFingerTipOverlayWindow$_shouldCreateContextAsSecure);Class _logos_class$_ungrouped$UIWindow = objc_getClass("UIWindow"); MSHookMessageEx(_logos_class$_ungrouped$UIWindow, @selector(sendEvent:), (IMP)&_logos_method$_ungrouped$UIWindow$sendEvent$, (IMP*)&_logos_orig$_ungrouped$UIWindow$sendEvent$);} }
-#line 58 "Tweak.xm"
+#line 59 "Tweak.xm"

@@ -1,8 +1,8 @@
 # ninja log v5
-1	80	1585325240444763028	.dragon/build/Tweak.xm.mm	179d558fe45cc212
-1	1114	1585325241478546624	.dragon/build/MBFingerTipWindow.m.o	19b1b19c01a47b18
-80	1374	1585325241738091965	.dragon/build/Tweak.xm.mm.o	d15617e943edcacc
-1374	1597	1585325241961332366	.dragon/sign/.dragon/_/Library/MobileSubstrate/DynamicLibraries/Fingertips.dylib.unsym	c43d36ff938830a5
-1597	1623	1585325241961332366	.dragon/sign/.dragon/_/Library/MobileSubstrate/DynamicLibraries/Fingertips.dylib.unsigned	a0d9e3841b337309
-1623	1636	1585325241999139544	.dragon/_/Library/MobileSubstrate/DynamicLibraries/Fingertips.dylib	42fb8ea177b4b250
-1636	1641	0	.dragon/build/trash/stage	7b993e90e0314f86
+0	163	1585518586125312816	.dragon/build/Tweak.xm.mm	179d558fe45cc212
+1	2197	1585518588159401360	.dragon/build/MBFingerTipWindow.m.o	19b1b19c01a47b18
+163	2299	1585518588259514929	.dragon/build/Tweak.xm.mm.o	d15617e943edcacc
+2299	2610	1585518588572020534	.dragon/sign/.dragon/_/Library/MobileSubstrate/DynamicLibraries/Fingertips.dylib.unsym	f5502e9365f6973a
+2610	2766	1585518588572020534	.dragon/sign/.dragon/_/Library/MobileSubstrate/DynamicLibraries/Fingertips.dylib.unsigned	a0d9e3841b337309
+2766	2788	1585518588748501819	.dragon/_/Library/MobileSubstrate/DynamicLibraries/Fingertips.dylib	42fb8ea177b4b250
+2788	2798	0	.dragon/build/trash/stage	7b993e90e0314f86

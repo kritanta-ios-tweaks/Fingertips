@@ -12,9 +12,15 @@ Fingertips:
         - arm64
         - arm64e
     cflags: -w
-FingertipsPrefs:
+    libs:
+        - colorpicker
+fingertipsprefs:
     type: bundle
     dir: fingertipsprefs
+    targetios: 11.0
+    archs:
+        - arm64
+        - arm64e
     files:
         - FTPRootListController.m
     frameworks:

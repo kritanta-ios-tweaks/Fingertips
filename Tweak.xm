@@ -8,7 +8,7 @@
 // https://github.com/mapbox/Fingertips
 //
 //
-
+#include "libcolorpicker.h"
 #include "MBFingerTipWindow.h"
 
 // Declare ourselves a global to hit
@@ -34,6 +34,7 @@ static MBFingerTipWindow *_rtWindow;
 //super hacky fix for showing our view on the lockscreen
 
 - (BOOL)_shouldCreateContextAsSecure {
+	UIColor *coolColor = LCPParseColorString(@"ffffff", @"#ff0000");
     return YES;
 }
 
